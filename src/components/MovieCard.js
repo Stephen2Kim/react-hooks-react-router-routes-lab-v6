@@ -1,13 +1,20 @@
-import {Link} from 'react-router-dom';
+// src/components/MovieCard.js
+import React from 'react';
 
-function MovieCard({title}) {
-  
+function MovieCard({ movie }) {
+  if (!movie) return null;
+
   return (
-    <article>
-        <h2>{title}</h2>
-        {/* What should go here? */}
-    </article>
+    <div>
+      <h1>{movie.title}</h1>
+      <p>{movie.time} minutes</p>
+      <div>
+        {movie.genres.map((genre, index) => (
+          <span key={index}>{genre}</span>
+        ))}
+      </div>
+    </div>
   );
-};
+}
 
 export default MovieCard;
